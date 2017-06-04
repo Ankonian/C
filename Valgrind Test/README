@@ -1,0 +1,8 @@
+Error 1: Invalid write of size 1 at demonstrateCalloc
+Error 2: Invalid read of size 1 at demonstrateCalloc
+Memory leak error: Valgrind said the memory was allocated on line 444. The realloc function allocated the lost memory.
+
+Arraylist.c program ask user for action: insert new number, print out numbers stored, or quit the program.
+Inserting new number will add a new number input from the user to the array, if the array is full, reallocate more memory and expand the length of the array
+Printing numbers will print all the numbers user input in the duration of the program
+Quit will kill the program and free the memory allocated

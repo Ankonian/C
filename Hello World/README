@@ -1,0 +1,1 @@
+cc -Wall -Wextra -Wpedantic -Werror -std=c99 lab0.c -o lab0

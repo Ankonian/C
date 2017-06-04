@@ -1,0 +1,4 @@
+The cat.c program prints out the content of the file.
+The hello.c program prints out the phrase "Hello World!" Punctuation might varies in this phrase
+The Makefile is a short way to compile both hello.c and cat.c at the same time
+The README file is a plain text file that explains all the explanation that I just did. 

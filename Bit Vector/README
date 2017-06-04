@@ -1,0 +1,3 @@
+This program list numbers from 2 to 100,000. Identify each number as either prime or composite.
+If the composite has factors that can be summed up to be the composite number itself, the number 
+will be labeled as perfect number.

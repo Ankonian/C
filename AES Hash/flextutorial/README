@@ -1,0 +1,67 @@
+An example of how to use flex.
+
+Flex is a tool for creating lexical analyzers, also known as scanners.
+A lexical analyzer is a program that converts sequences of text into
+tokens: strings with some assigned meaning.
+
+
+
+Note that flex is neither required nor expected for assignment 3;
+it is simply a useful tool to know about.
+Also note that this tutorial is not intended to be a comprehensive
+overview of flex or regular expressions, nor is this code something
+you can directly use for the assignment.
+
+This tutorial consists of the following five files, listed in the
+order in which I recommend you read them:
+	README         	- this file.
+
+	scanner.l      	- a flex input file. It contains a set of rules
+		which flex uses to construct a scanner.
+
+	flextutorial.c 	- a C program which uses the scanner defined in
+		scanner.l to count words in a given file or from standard input.
+	flextutorial.h 	- a C header containing an enum shared by
+		the scanner and main program.
+	Makefile		- a makefile to put it all together
+		The process of compiling the program differs whether you are on
+		a linux or mac computer, due to flex having differently
+		named libraries on these platforms.. 
+			On LINUX: use
+				make
+			On MAC: use 
+				make mac
+			On Windows: good luck
+
+
+Compiling produces the executable
+	flextutorial
+
+The program will identify words, numbers, and punctuation in the input.
+At the end of the file, it will also print the number of lines and words 
+in the input.
+
+
+It can be run as
+	./flextutorial
+		which will read from standard input
+
+	./flextutorial [filename]
+		which will read from the file named [filename].
+		For example,
+			./flextutorial README
+		will read this file, print out all the tokens, and report
+		that it contains:
+			60 lines
+			304 words
+			8 instances of the word 'flex'
+
+		//The observant reader will note that these numbers are
+		//not accurate. The observant reader will also note that
+		//the scanner has a rule to ignore inline C-style
+		//comments such as the ones in this block
+		//The nine instances of 'flex' below are completely ignored
+		//flex flex flex flex flex flex flex flex flex
+
+For further reference, see the flex manual at
+http://westes.github.io/flex/manual/

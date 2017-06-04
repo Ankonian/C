@@ -1,0 +1,6 @@
+Sorting.c is a test bench for five different types of sorting algorithms. It ask user for what types of sorting desired, how many numbers to be sorted, a random seed, and how many desired to be printed out.
+MinSort looks for the smallest element in the numbers and move it to the top. One of the simplest and potentially lowest efficiency in terms of sorting.
+BubbleSort is the opposite of minSort. It compares the two adjacent numbers and move the bigger one down, after each iteration, the bigger number will be moved to the bottom. Same efficiency as minSort.
+InsertionSort moves an unsorted element from the unsorted part of the numbers to the sorted part of the numbers and insert it to the correct index.
+QuickSort creates a pivot and reorder the array so the numbers smaller than the pivot goes before it and greater number goes after pivot. Recursively calling this action until the array is sorted.
+MergeSort splits the array of numbers into half, keep splitting until only one number is left in each partitioned array. Merge the partitioned array back up in order
