@@ -1,13 +1,16 @@
-# include <stdio.h>
 # include "stack.h"
+# include <stdio.h>
+# include <stdlib.h>
 
-// The stack.c code was generously donated by Darrell Long on Piazza and I didn't know he donated it so I implemented most of it while thinking about how many other ways I can kill myself
+# define NIL (void *) 0
+# define MIN_STACK 10
+// looking at Darrell's code
 stack *newStack()
 {
-	stack *s;
-	s->size = 10;
+	stack *s = (stack *) malloc(sizeof(stack));
+	s->size = MIN_STACK;
 	s->top = 0;
-	s->entries = (item *)calloc(s->size, sizeof(item));
+	s->entries = calloc(MIN_STACK, sizeof(item));
 	return s;
 }
 
@@ -15,34 +18,46 @@ void delStack(stack *s)
 {
 	free(s->entries);
 	free(s);
+	return;
 }
 
-item pop(stack *s)
+item pop (stack *s)
 {
-	if(empty(s))
+	if(s->top == 0)
 	{
-		printf("The stack has nothing");
+		return NIL;
 	}
 	s->top -= 1;
 	return s->entries[s->top];
 }
-void push(stack *s, item i)
+
+void push(stack *s, item a)
 {
-	if(full(s))
+	if(s->size == s->top)
 	{
-		s->entries = realloc(s->size*2, sizeof(item));
+		// double the size if not big enoufh.
+		s->size *= 2;
+		s->entries = (item *) realloc(s->entries, s->size * sizeof(item));
 	}
-	entries[s->top] = i;
-	s->top++;
-	return;
+	s->entries[s->top] = a;
+	s->top += 1;
+	return;	
 }
 
 bool empty(stack *s)
 {
-	return (s->size == 0);
+	return s->top == 0; 
 }
 
 bool full(stack *s)
 {
-	return(s->top == s->size);
+	if(s->top == s->size)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	// is always false.
 }

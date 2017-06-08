@@ -1,25 +1,27 @@
-//Code provided by Darrell Long in his pdf
 # ifndef _STACK_H
 # define _STACK_H
 # include <stdint.h>
 # include <stdbool.h>
+# include "huffman.h"
 
-typedef uint32_t item; // You will need to change this
+# define INVALID 0xDeadD00d
+
+typedef  treeNode *item;
 
 typedef struct stack
 {
-	uint32_t size; // How big?
-	uint32_t top; // Where's the top?
-	item *entries; // Array to hold it (via calloc)
+	uint32_t size; // how big
+	uint32_t top;  // top
+	item *entries;
 } stack;
 
-stack *newStack(); // Constructor	
-void	delStack(stack *); // Deconstructor
+stack *newStack();
+void delStack(stack *);
 
-item pop (stack *); // Returns the top item
-void push(stack *, item); // Adds an item to the top
+item pop(stack *);
+void push(stack *, item);
 
-bool empty(stack *); // Is it empty?
-bool full (stack *); // Is it full?
+bool empty(stack *);
+bool full(stack *);
 
-# endif
+#endif

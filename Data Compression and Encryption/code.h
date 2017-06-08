@@ -1,20 +1,20 @@
-//Code.h is provided by Darrell Long in his pdf
 # ifndef _CODE_H
 # define _CODE_H
 
 # include <stdint.h>
 # include <stdbool.h>
 
+// from Darrell's lab manual.
 typedef struct code
 {
 	uint8_t bits[32];
 	uint32_t l;
-}code;
+} code;
 
 static inline code newCode()
 {
 	code t;
-	for(int i = 0; i < 32; i+=1) { t.bits[i] = 0; }
+	for (int i = 0; i < 32; i += 1) { t.bits[i] = 0; }
 	t.l = 0;
 	return t;
 }
@@ -32,12 +32,11 @@ static inline bool pushCode(code *c, uint32_t k)
 	}
 	else
 	{
-		c->bits[c->l / 8] |= (0x1 <<(c->l % 8));
+		c->bits[c->l / 8] |= (0x1 << (c->l % 8));
 		c->l += 1;
 	}
 	return true;
 }
-
 static inline bool popCode(code *c, uint32_t *k)
 {
 	if(c->l == 0)
@@ -50,13 +49,10 @@ static inline bool popCode(code *c, uint32_t *k)
 		*k = ((0x1 << (c->l % 8)) & c->bits[c->l / 8]) >> (c->l % 8);
 		return true;
 	}
-	else
-	{
-		c->bits[c->l / 8] = (0x1 << (c->l % 8));
-		c->l += 1;
 }
 
-static inline bool emptyCode(code *c) { return c->l == 0; }
+static inline bool emptyCode(code *c) {return c->l == 0; }
 
-static inline bool fullCode(code *c) { return c->l == 256; }
+static inline bool fullCode(code *c) {return c->l == 256;}
+
 # endif

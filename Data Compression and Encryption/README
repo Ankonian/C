@@ -1,0 +1,3 @@
+For encode.c the code will create a histogram keeping track of how many times each character shows up. Then put them into the priority queue in order of least amount of occurence in the front of the queue. Then build the tree according to the sorted queue. Write out the encoded code and the binary paths into a new file along with the size of the tree and 0xDeadD00d
+I am responsible for the encoding part of the assignment. I wrote the histogram and the priority queue, my partner finished decode a week before the assignment is due and helped me write rest of the encoding code. We worked on the appendCode together by sharing notes.
+There are some test files appearing in the Makefile but they don't make any difference in the output.

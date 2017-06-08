@@ -6,21 +6,21 @@
 # include <stdint.h>
 
 typedef struct bitV {
-	uint8_t *v;
-	uint32_t l;
+	uint8_t *vector;
+	uint64_t length;
 } bitV;
 
-bitV *newVec(uint32_t num);
+bitV *newVec(uint64_t);
 
-void delVec(bitV * vec);
+void delVec(bitV *);
 
-void oneVec(bitV * vec);
+void oneVec(bitV *);
 
-void setBit(bitV * vec, uint32_t num);
+void setBit(bitV *, uint64_t);
 
-void clrBit(bitV * vec, uint32_t num);
+void clrBit(bitV *, uint64_t);
 
-uint8_t valBit(bitV * vec, uint32_t num);
+uint8_t valBit(bitV *, uint64_t);
 
-uint32_t lenVec(bitV * vec);
+uint64_t lenVec(bitV *);
 # endif

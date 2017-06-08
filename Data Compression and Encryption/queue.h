@@ -1,28 +1,26 @@
-//Code provided by Darrell Long in his pdf
-
 # ifndef _QUEUE_H
 # define _QUEUE_H
 # include <stdint.h>
 # include <stdbool.h>
 # include "huffman.h"
 
-typedef uint32_t item; //treeNode defined in huffman.h
+typedef treeNode *item;
 
 typedef struct queue
 {
-	uint32_t size; //How big is it?
-	uint32_t head, tail; //Front and rear locations
-	item *Q; // Array to hold it (via calloc)
-}queue;
+	uint32_t size;	     // how big?
+	uint32_t head, tail; // front and rear locations
+	item *Q; // an array to hold queue
+} queue;
 
-queue *newQueue(uint32_t size); // Constructor
-void delQueue(queue *q); // Deconstructor
+queue *newQueue(uint32_t size);
+void delQueue(queue *q);
 
-bool empty(queue *q); // Is it empty?
-bool full(queue *q); // Is it full?
+bool emptyQ(queue *q);
+bool fullQ(queue *q);
 
-bool enqueue(queue *q, item i); // Add an item
-bool dequeue(queue *q, item *i); // Remove from the rear
+bool enqueue(queue *q, item i);
+bool dequeue(queue *q, item *i);
 
-void printQueue(queue *q); //Print queue
 # endif
+

@@ -21,26 +21,26 @@ void delQueue(queue *q)
 	return;
 }
 
-bool empty(queue *q)
+bool emptyQ(queue *q)
 {
 	return q->tail == 0;
 }
 
-bool full(queue *q)
+bool fullQ(queue *q)
 {
 	return q->tail == q->size;
 }
 
 bool enqueue(queue *q, item i)
 {
-	if(full(q))
+	if(fullQ(q))
 	{
 		return false;
 	}
 	else
 	{
 		//Priority queue suggested and modified by Arjun
-		if(empty(q))
+		if(emptyQ(q))
 		{
 			q->Q[q->tail++] = i;
 		}
@@ -48,7 +48,10 @@ bool enqueue(queue *q, item i)
 		{
 			for(int32_t j = 1; ((int32_t)q->tail) - j + 1 >= 0; j++)
 			{
-				if(q->tail - j + 1 == 0 || i <= q->Q[q->tail-j])
+				// i <= q->Q[q->tail->j]
+				// compare(l, r): return (l - r);
+				//if(q->tail - j + 1 == 0 || i->count <= q->Q[q->tail-j]->count)
+				if(q->tail - j + 1 == 0 || compare(i, q->Q[q->tail-j]) < 0)
 				{
 					q->Q[q->tail-j+1] = i;
 					break;
@@ -66,7 +69,7 @@ bool enqueue(queue *q, item i)
 
 bool dequeue(queue *q, item *i)
 {
-	if(empty(q))
+	if(emptyQ(q))
 	{
 		return false;
 	}
@@ -85,7 +88,7 @@ void printQueue(queue *q)
 	printf("Print: tail=%d head=%d size=%d\n", q->tail, q->head, q->size);
 	for(uint32_t i = q->head; i != q->tail; i = (i + 1) % q->size)
 	{
-		printf("%d\n", q->Q[i]);
+		printf("%c\n", q->Q[i]->symbol);
 	}
 	return;
 }
