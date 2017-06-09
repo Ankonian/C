@@ -1,0 +1,9 @@
+threadArgs create a threadArgs struct to contain the number of times the thread safe function should be called. 
+safeIncrement increments the global variable incrementor while the mutex is locked, blocking all other operations or instructions until the incrementor is incremented, which then unlocks the mutex
+threadFunc takes in an argument and cast it to threadArgs type. Then call safeIncrement numberOfCall times
+main takes in how many threads the user wants to spawn and pass that data to threadFunc to perform safeIncrement
+
+mutex is like a VIP access card to a single-use operation. Only the thread who has the VIP access card or mutex can proceed to the execute the instruction of critical section. All other threads will have to wait until the the VIP thread finished executions
+A race condition is the reason why mutex exist. If there are multiple threads trying to access a variable, there will be chances of undesired behavior happened. If there are two threads performing the same operation, such as incrementing a number. Without mutex to lock and unlock a thread, when the first thread is trying to read in a variable, the operating system might switch context and jump to the start of the second thread and starts to executing the second thread instead. So when the two threads finished executing, the number in question will not the be the same desired or expected output.
+
+I did not use any odd design to make the code. I just went for the simple, and conventional way to code this program in my opinion. In the end, the code works. I tested 5 times and no errors so I am pretty confident about it, and I don't have the patience and determination to test the code 500 tim.
