@@ -1,6 +1,6 @@
 # include<stdio.h>
 # include<stdlib.h>
-# include<conio.h>
+# include<curse.h>
 # include<string.h>
 # define LEN sizeof(struct commodity)
 # define FORMAT "%-8d%-15s%-12lf%-12.1lf%-12.1lf\n"

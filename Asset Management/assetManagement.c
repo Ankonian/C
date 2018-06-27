@@ -1,6 +1,6 @@
 # include<stdio.h>
 # include<stdlib.h>
-# include<conio.h>
+# include<curse.h>
 # include<string.h>
 # include<assetManagement.h>
 # define LEN sizeof(struct commodity)

@@ -5,10 +5,10 @@ OBJECTS = assetManagement.o
 .PHONY: all
 all: assetManagement
 assetManagement: $(OBJECTS)
-	$(CC)   $(CFLAGS) $(OBJECTS) -o increment
+	$(CC)   $(CFLAGS) $(OBJECTS) -o increment -lncurses
 
 assetManagement.o: assetManagement.c
-	$(CC)   $(CFLAGS) -g -c assetManagement.c 
+	$(CC)   $(CFLAGS) -c assetManagement.c -lncurses
 
 
 .PHONY: clean
